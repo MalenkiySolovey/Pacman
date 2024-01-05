@@ -1,0 +1,6 @@
+Standart
+Labyrinth
+Loops
+TestBox
+CloseTest
+LevelsTest
