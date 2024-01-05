@@ -23,7 +23,7 @@ void     Area::setSize         (VectorFF size)  { _Size = size; }
 void     Area::setSize         (_f32 x, _f32 y) { _Size.x = x; _Size.y = y; }
 VectorFF Area::getSize         ()               { return _Size; }
 void     Area::_setPosCentre   () {
-    _Position.x = _centering((_f32)((_Settings::__Widht + _Settings::__ExtraWidht) * _Settings::__CellSize) / _Settings::__ScreenCoef, _Size.x) + _d.x;
+    _Position.x = _centering((_f32)((_Settings::__Width + _Settings::__ExtraWidth) * _Settings::__CellSize) / _Settings::__ScreenCoef, _Size.x) + _d.x;
     _Position.y = _centering((_f32)((_Settings::__Height + _Settings::__ExtraHeight) * _Settings::__CellSize) / _Settings::__ScreenCoef, _Size.y) + _d.y;
 }
 void     Area::setPosCentre    (_f32 dx, _f32 dy) {

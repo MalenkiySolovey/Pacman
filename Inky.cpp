@@ -19,10 +19,10 @@ void Inky::_search(const std::vector<std::vector<_i64>>& Map, Pacman& pcmn) {
         if (_CellPos.x > cp.x) cp.x -= std::abs(cp.x - _CellPos.x);                         
         if (_CellPos.y < cp.y) cp.y += std::abs(cp.y - _CellPos.y);                         
         if (_CellPos.y > cp.y) cp.y -= std::abs(cp.y - _CellPos.y);                         
-        if (cp.x >= _Settings::__Widht) cp.x -= _Settings::__Widht;                         
-        if (cp.x < 0) cp.x += _Settings::__Widht;                                           
+        if (cp.x >= _Settings::__Width) cp.x -= _Settings::__Width;                         
+        if (cp.x < 0) cp.x += _Settings::__Width;                                           
         if (cp.y >= _Settings::__Height) cp.y -= _Settings::__Height;                       
-        if (cp.y < 0) cp.y += _Settings::__Widht;                                           
+        if (cp.y < 0) cp.y += _Settings::__Width;                                           
         _aStar(Map, cp, true);                                                              
     }                                                                                       
 }

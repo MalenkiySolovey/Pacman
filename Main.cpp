@@ -18,7 +18,7 @@ int main() {
 	scanMap(GameMap, _Settings::__MapNames[_Settings::__MapNumber]);
 	copyMap(GameMap, GameplayMap);
 	scanHighscore(_Settings::__MapNames[_Settings::__MapNumber]);
-	sf::RenderWindow GameWindow(sf::VideoMode((_Settings::__Widht + _Settings::__ExtraWidht) * _Settings::__CellSize * _Settings::__ScreenResize / 2,
+	sf::RenderWindow GameWindow(sf::VideoMode((_Settings::__Width + _Settings::__ExtraWidth) * _Settings::__CellSize * _Settings::__ScreenResize / 2,
 											  (_Settings::__Height+ _Settings::__ExtraHeight) * _Settings::__CellSize * _Settings::__ScreenResize / 2),
 								"Pacman", sf::Style::Close);
 	reloadWindow(GameWindow);
@@ -59,7 +59,7 @@ int main() {
 	Rectangle rctDark(&GameWindow);
 	rctDark.setPosition(0.f, 0.f);
 	rctDark.setColor(RGB(0, 0, 0, 150));
-	rctDark.setSize((_f32)((_Settings::__Widht + _Settings::__ExtraWidht) * 16.f  ),
+	rctDark.setSize((_f32)((_Settings::__Width + _Settings::__ExtraWidth) * 16.f  ),
 		            (_f32)((_Settings::__Height + _Settings::__ExtraHeight) * 16.f));
 	///Настройки
 	Button btnNextName = btnGame;
@@ -235,7 +235,7 @@ int main() {
 	rctGameBar = btnGame.getRectangle();
 	rctGameBar.setColor(RGB(216, 142, 0));
 	rctGameBar.setBorderColor(RGB(135, 90, 0));
-	rctGameBar.setSize((_f32)_Settings::__Widht * 16.f, 16.f);
+	rctGameBar.setSize((_f32)_Settings::__Width * 16.f, 16.f);
 	rctGameBar.setPosition(0.f, (_f32)_Settings::__Height * 16.f);
 	rctGameBar.setPosCentreOff();
 	Text txtGameLevel = txtVictory;
@@ -465,7 +465,7 @@ int main() {
 		if (!btnHighscore.isActive()) { //Меню: Игра
 			GameWindow.draw(_Background);
 			rctHighscore.draw();
-			_Logo.setPosition(_f32(((_Settings::__Widht + _Settings::__ExtraWidht)* _Settings::__CellSize - _LogoTexture.getSize().x) / 2.f), 5.f * _Settings::__ScreenCoef);
+			_Logo.setPosition(_f32(((_Settings::__Width + _Settings::__ExtraWidth)* _Settings::__CellSize - _LogoTexture.getSize().x) / 2.f), 5.f * _Settings::__ScreenCoef);
 			GameWindow.draw(_Logo);
 			_i32 i = 0;
 			for (auto u : _Settings::__MapScores) {

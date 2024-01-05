@@ -75,7 +75,7 @@ void Pacman::nextGame(std::vector<std::vector<_i64>>& Map) {
 void Pacman::setPosition(std::vector<std::vector<_i64>>& Map) {
 	_Settings::__DotsNumber = 0;
 	for (_ui32 i = 0; i < _Settings::__Height; i++) {
-		for (_ui32 j = 0; j < _Settings::__Widht; j++) {
+		for (_ui32 j = 0; j < _Settings::__Width; j++) {
 			if (Map[j][i] == Cell::_Pacman) {
 				Map[j][i] = Cell::Empty;
 				_CellPos.x = i; _CellPos.y = j;
@@ -133,11 +133,11 @@ void Pacman::_move() {
 		_OutPositionUD = _Position;
 		_OutPositionLR = _Position;
 		if (_Position.x <= 0.f) {
-			_OutPositionLR.x += (_f32)_Settings::__Widht * 16.f;
+			_OutPositionLR.x += (_f32)_Settings::__Width * 16.f;
 			_OutMapLR = true;
 		}
-		if (_Position.x + 16.f >= (_f32)_Settings::__Widht * 16.f) {
-			_OutPositionLR.x -= (_f32)_Settings::__Widht * 16.f;
+		if (_Position.x + 16.f >= (_f32)_Settings::__Width * 16.f) {
+			_OutPositionLR.x -= (_f32)_Settings::__Width * 16.f;
 			_OutMapLR = true;
 		}
 		if (_Position.y <= 0.f) {
@@ -145,22 +145,22 @@ void Pacman::_move() {
 			_OutMapUD = true;
 		}
 		if (_Position.y + 16.f >= (_f32)_Settings::__Height * 16.f) {
-			_OutPositionUD.y -= (_f32)_Settings::__Widht * 16.f;
+			_OutPositionUD.y -= (_f32)_Settings::__Width * 16.f;
 			_OutMapUD = true;
 		}
 		if (_Position.x <= -16.f)                                  //left
-			_Position.x += (_f32)_Settings::__Widht * 16.f;
-		if (_Position.x >= (_f32)(_Settings::__Widht + 1) * 16.f)  //right
-			_Position.x -= (_f32)_Settings::__Widht * 16.f;
+			_Position.x += (_f32)_Settings::__Width * 16.f;
+		if (_Position.x >= (_f32)(_Settings::__Width + 1) * 16.f)  //right
+			_Position.x -= (_f32)_Settings::__Width * 16.f;
 		if (_Position.y <= -16.f)                                  //up
 			_Position.y += (_f32)_Settings::__Height * 16.f;
 		if (_Position.y >= (_f32)(_Settings::__Height + 1) * 16.f) //down
 			_Position.y -= (_f32)_Settings::__Height * 16.f;
 		_CentrePosition = _Position + 8.f;
 		if (_CentrePosition.x <= 0)                                //left
-			_CentrePosition.x += (_f32)_Settings::__Widht * 16.f;
-		if (_CentrePosition.x >= (_f32)_Settings::__Widht * 16.f)  //right
-			_CentrePosition.x -= (_f32)_Settings::__Widht * 16.f;
+			_CentrePosition.x += (_f32)_Settings::__Width * 16.f;
+		if (_CentrePosition.x >= (_f32)_Settings::__Width * 16.f)  //right
+			_CentrePosition.x -= (_f32)_Settings::__Width * 16.f;
 		if (_CentrePosition.y <= 0)                                //up
 			_CentrePosition.y += (_f32)_Settings::__Height * 16.f;
 		if (_CentrePosition.y >= (_f32)_Settings::__Height * 16.f) //down
@@ -171,9 +171,9 @@ void Pacman::_move() {
 		if (_Down)  _LookPosition.y += 16.f;
 		if (_Up)    _LookPosition.y -= 16.f;
 		if (_LookPosition.x <= 0)                                //left
-			_LookPosition.x += (_f32)_Settings::__Widht * 16.f;
-		if (_LookPosition.x >= (_f32)_Settings::__Widht * 16.f)  //right
-			_LookPosition.x -= (_f32)_Settings::__Widht * 16.f;
+			_LookPosition.x += (_f32)_Settings::__Width * 16.f;
+		if (_LookPosition.x >= (_f32)_Settings::__Width * 16.f)  //right
+			_LookPosition.x -= (_f32)_Settings::__Width * 16.f;
 		if (_LookPosition.y <= 0)                                //up
 			_LookPosition.y += (_f32)_Settings::__Height * 16.f;
 		if (_LookPosition.y >= (_f32)_Settings::__Height * 16.f) //down
@@ -184,9 +184,9 @@ void Pacman::_move() {
 		if (_Down)  _ColisionPos.y -= 8.f;
 		if (_Up)    _ColisionPos.y += 8.f;
 		if (_ColisionPos.x <= 0)                                //left
-			_ColisionPos.x += (_f32)_Settings::__Widht * 16.f;
-		if (_ColisionPos.x >= (_f32)_Settings::__Widht * 16.f)  //right
-			_ColisionPos.x -= (_f32)_Settings::__Widht * 16.f;
+			_ColisionPos.x += (_f32)_Settings::__Width * 16.f;
+		if (_ColisionPos.x >= (_f32)_Settings::__Width * 16.f)  //right
+			_ColisionPos.x -= (_f32)_Settings::__Width * 16.f;
 		if (_ColisionPos.y <= 0)                                //up
 			_ColisionPos.y += (_f32)_Settings::__Height * 16.f;
 		if (_ColisionPos.y >= (_f32)_Settings::__Height * 16.f) //down
@@ -199,7 +199,7 @@ void Pacman::mapCollision(std::vector<std::vector<_i64>>& Map) {
 		_Pause = false;
 		_CellPos.x = (_i64)round(_CentrePosition.x) / 16;
 		_CellPos.y = (_i64)round(_CentrePosition.y) / 16;
-		if (_CellPos.x >= _Settings::__Widht)  _CellPos.x = 0; if (_CellPos.x <= -1) _CellPos.x = _Settings::__Widht - 1;
+		if (_CellPos.x >= _Settings::__Width)  _CellPos.x = 0; if (_CellPos.x <= -1) _CellPos.x = _Settings::__Width - 1;
 		if (_CellPos.y >= _Settings::__Height) _CellPos.y = 0; if (_CellPos.y <= -1) _CellPos.y = _Settings::__Height - 1;
 		switch (Map[_CellPos.y][_CellPos.x]) {
 			case Cell::Energizer: { 
@@ -225,7 +225,7 @@ void Pacman::mapCollision(std::vector<std::vector<_i64>>& Map) {
 		}
 		_i64 xLook = (_i64)round(_LookPosition.x) / 16,
 			 yLook = (_i64)round(_LookPosition.y) / 16;
-		if (xLook >= _Settings::__Widht)  xLook = 0; if (xLook <= -1) xLook = _Settings::__Widht - 1;
+		if (xLook >= _Settings::__Width)  xLook = 0; if (xLook <= -1) xLook = _Settings::__Width - 1;
 		if (yLook >= _Settings::__Height) yLook = 0; if (yLook <= -1) yLook = _Settings::__Height - 1;
 		if (Map[yLook][xLook] == Cell::Wall || Map[yLook][xLook] == Cell::Door) {
 			if (_ColisionPos.y <= (yLook + 1) * 16.f &&
@@ -237,8 +237,8 @@ void Pacman::mapCollision(std::vector<std::vector<_i64>>& Map) {
 			 xLeft  = (_i64)round(_CentrePosition.x - 7.f < 0.f ? _CentrePosition.x - 7.f + _Settings::__Height * 16 : _CentrePosition.x - 7.f) / 16,
 			 yDown  = (_i64)round(_CentrePosition.y + 7.f) / 16,
 			 yUp    = (_i64)round(_CentrePosition.y - 7.f < 0.f ? _CentrePosition.y - 7.f + _Settings::__Height * 16 : _CentrePosition.y - 7.f) / 16;
-		if (xRight >= _Settings::__Widht)  xRight = 0; if (xRight <= -1) xRight = _Settings::__Widht - 1;
-		if (xLeft  >= _Settings::__Widht)  xLeft  = 0; if (xLeft  <= -1)  xLeft = _Settings::__Widht - 1;
+		if (xRight >= _Settings::__Width)  xRight = 0; if (xRight <= -1) xRight = _Settings::__Width - 1;
+		if (xLeft  >= _Settings::__Width)  xLeft  = 0; if (xLeft  <= -1)  xLeft = _Settings::__Width - 1;
 		if (yDown  >= _Settings::__Height) yDown  = 0; if (yDown  <= -1)  yDown = _Settings::__Height - 1;
 		if (yUp    >= _Settings::__Height) yUp    = 0; if (yUp    <= -1)    yUp = _Settings::__Height - 1;
 		if (Map[_CellPos.y][xRight] == Cell::Wall || Map[_CellPos.y][xRight] == Cell::Door) _Position.x -= _Speed * _Settings::__ElapsedTime;

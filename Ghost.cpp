@@ -97,10 +97,10 @@ Ghost::Quarter Ghost::_whatQuarter(const CellPosition& cp) {
 }
 Ghost::Quarter Ghost::_whatQuarter(const VectorFF& cp) {
     if (cp.y <= cp.x)
-        if (cp.y >= -cp.x + _Settings::__Widht * 16.f) return Quarter::Right;
+        if (cp.y >= -cp.x + _Settings::__Width * 16.f) return Quarter::Right;
         else return Quarter::Up;
     else
-        if (cp.y >= -cp.x + _Settings::__Widht * 16.f) return Quarter::Down;
+        if (cp.y >= -cp.x + _Settings::__Width * 16.f) return Quarter::Down;
         else return Quarter::Left;
 }
 void Ghost::search(const std::vector<std::vector<_i64>>& Map, Pacman& pcmn) {
@@ -214,7 +214,7 @@ void Ghost::_move(const std::vector<std::vector<_i64>>& Map) {
 void Ghost::setPosition(std::vector<std::vector<_i64>>& Map) {
     _Exists = false;
     for (_ui32 i = 0; i < _Settings::__Height; i++) {
-        for (_ui32 j = 0; j < _Settings::__Widht; j++) {
+        for (_ui32 j = 0; j < _Settings::__Width; j++) {
             if (Map[j][i] == _Kind) {
                 _Exists = true;
                 Map[j][i] = Cell::Empty;

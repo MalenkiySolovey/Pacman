@@ -6,7 +6,7 @@ void scanMap(std::vector<std::vector<_i64>>& _Map, std::string FileName) {
 	std::vector<std::vector<_i64>> Map;
 	for (_ui32 i = 0; i < _Settings::__Height; i++) {
 		std::vector<_i64> v;
-		for (_ui32 j = 0; j < _Settings::__Widht; j++) {
+		for (_ui32 j = 0; j < _Settings::__Width; j++) {
 			_i64 cell; _File >> cell;
 			v.push_back(cell);
 		}
@@ -32,8 +32,8 @@ void saveMap(std::vector<std::vector<_i64>>& _Map, std::string FileName) {
 	std::fstream _File("Maps/Map_" + FileName + ".txt", std::ios::out);
 	for (_ui32 i = 0; i < _Settings::__Height; i++) {
 		std::vector<_i64> v;
-		for (_ui32 j = 0; j < _Settings::__Widht; j++) {
-			if (j == _Settings::__Widht - 1) _File << _Map[i][j];
+		for (_ui32 j = 0; j < _Settings::__Width; j++) {
+			if (j == _Settings::__Width - 1) _File << _Map[i][j];
 			else _File << _Map[i][j] << ' ';
 		}
 		if (i != _Settings::__Height - 1) _File << '\n';
@@ -214,7 +214,7 @@ void createButtonsMap(std::vector<std::vector<Button>>& Map, sf::RenderWindow& _
 	std::vector<std::vector<Button>> _Map;
 	for (_ui64 i = 0; i < _Settings::__Height; i++) {
 		std::vector<Button> v;
-		for (_ui64 j = 0; j < _Settings::__Widht; j++) {
+		for (_ui64 j = 0; j < _Settings::__Width; j++) {
 			Button btnChangeCell(&_Window);
 			btnChangeCell.setMouseClick(sf::Mouse::Button::Left);
 			btnChangeCell.RCT.setSize(15, 15);

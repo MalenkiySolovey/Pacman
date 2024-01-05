@@ -30,8 +30,8 @@ struct _Settings {
 
 	static inline _ui32                    __Height       { 21 };
 	static inline _ui32                    __ExtraHeight  { 1 };
-	static inline _ui32                    __Widht        { 21 };
-	static inline _ui32                    __ExtraWidht   { 0 };
+	static inline _ui32                    __Width        { 21 };
+	static inline _ui32                    __ExtraWidth   { 0 };
 														  
 	static inline _ui64                    __MapNumber    { 0 };
 	static inline std::vector<std::string> __MapNames;	  

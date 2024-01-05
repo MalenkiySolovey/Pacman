@@ -30,7 +30,7 @@ _bool isAllowedSymbol(_i8 chr) {
 	return true;
 }
 
-void reloadWindow(sf::RenderWindow& Win) { Win.setView(sf::View(sf::FloatRect(0, 0, (_f32)((_Settings::__Widht + _Settings::__ExtraWidht) * _Settings::__CellSize),
+void reloadWindow(sf::RenderWindow& Win) { Win.setView(sf::View(sf::FloatRect(0, 0, (_f32)((_Settings::__Width + _Settings::__ExtraWidth) * _Settings::__CellSize),
 																					(_f32)((_Settings::__Height + _Settings::__ExtraHeight)* _Settings::__CellSize)))); }
 
 void loadSettings() {
@@ -100,7 +100,7 @@ void unloadSettings() {
 void reloadLogo(sf::Texture& LogoTexture, sf::Sprite& LogoSprite) {
 	LogoTexture.loadFromFile("Materials/logo" + std::to_string(_Settings::__CellSize) + ".png");
 	LogoSprite.setTexture(LogoTexture, true);
-	LogoSprite.setPosition((_f32)(((_Settings::__Widht + _Settings::__ExtraWidht) * _Settings::__CellSize - LogoTexture.getSize().x) / 2.f), 25.f * _Settings::__ScreenCoef);
+	LogoSprite.setPosition((_f32)(((_Settings::__Width + _Settings::__ExtraWidth) * _Settings::__CellSize - LogoTexture.getSize().x) / 2.f), 25.f * _Settings::__ScreenCoef);
 }
 
 void reloadBackground(sf::Texture& BackgroundTexture, sf::Sprite& BackgroundSprite) {
