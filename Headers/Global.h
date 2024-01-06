@@ -44,8 +44,6 @@ struct _Settings {
 	const static inline _f32               __PacmanSpeed  { 60.f };
 };
 
-//Comment
-
 struct CellPosition {
 	_i64 x { 0 };
 	_i64 y { 0 };
