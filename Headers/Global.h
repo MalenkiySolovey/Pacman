@@ -24,31 +24,24 @@ typedef char32_t          _uc32;    //char32_t
 typedef __wchar_t         _wc;      //__wchar_t	
 
 struct _Settings {
+	const static inline _ui32              __Height       { 21 };
+	const static inline _ui32              __ExtraHeight  { 1 };
+	const static inline _ui32              __Width        { 21 };
+	const static inline _ui32              __ExtraWidth   { 0 };
 	static inline _ui32                    __CellSize     { 16 };
 	static inline _ui32                    __ScreenResize { 4 };
-	static inline _f32                     __ScreenCoef   { 1.f };
-
-	static inline _ui32                    __Height       { 21 };
-	static inline _ui32                    __ExtraHeight  { 1 };
-	static inline _ui32                    __Width        { 21 };
-	static inline _ui32                    __ExtraWidth   { 0 };
-														  
+	static inline _f32                     __ScreenCoef   { 1.f };				  
 	static inline _ui64                    __MapNumber    { 0 };
-	static inline std::vector<std::string> __MapNames;	  
-														  
+	static inline std::vector<std::string> __MapNames;	  			 									  
 	static inline _ui64                    __SkinNumber   { 0 };
 	static inline std::vector<std::string> __SkinNames;	
-
-	static inline std::vector<_i64>        __MapScores;	  
-														  
-	static inline _f32                     __ElapsedTime  { 1.f };
-														  
+	static inline std::vector<_i64>        __MapScores;	  							  
+	static inline _f32                     __ElapsedTime  { 1.f };						  
 	static inline _ui32                    __Level        { 1 };
 	static inline _ui32                    __DotsNumber   { 0 };
 	static inline _bool                    __Victory      { false };
-	static inline _bool                    __Death        { false };
-														  
-	static inline _f32                     __PacmanSpeed  { 60.f };
+	static inline _bool                    __Death        { false };													  
+	const static inline _f32               __PacmanSpeed  { 60.f };
 };
 
 struct CellPosition {
