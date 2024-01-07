@@ -4,15 +4,15 @@
 class Area {
 protected:
 	sf::RenderWindow* _Window                   ;
-	    VectorFF      _Position       {0, 0}    ;
-	    VectorFF      _Size           {0, 0}    ;
+		VectorFF      _Position       {0, 0}    ;
+		VectorFF      _Size           {0, 0}    ;
 		_bool         _Centre_Flag :1 { false } ;
 		VectorFF      _d              { 0, 0 }  ;
 		_bool         _Central     :1 { false } ;
 		VectorFF      _Pos_Other      { 0, 0 }  ;
 		VectorFF      _Size_Other     { 0, 0 }  ;
-	    _bool         _On_Flag     :1 { false } ;
-	    _bool         _On          :1 { false } ;
+		_bool         _On_Flag     :1 { false } ;
+		_bool         _On          :1 { false } ;
 	_bool    _isMouseOnArea   ();
 	void     _setPosCentre   ();
 	void     _setCentral     ();

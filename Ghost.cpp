@@ -277,7 +277,7 @@ void Ghost::nextGame() {
     _Right = false;
     if (_Settings::__Level < 10) _Speed = 0.9f * (_Settings::__PacmanSpeed + 2.f * _Settings::__Level);
     else _Speed = 0.9f * (_Settings::__PacmanSpeed + 20.f);
-    if (_Settings::__Level >= 30) _Speed = 0.9f * (_Settings::__PacmanSpeed + 21.5f);
+    if (_Settings::__Level >= 30) _Speed = 0.9f * (_Settings::__PacmanSpeed + 24);
     _PrevSpeed = _Speed;
     _LookMove = false;
     _Fear = false;

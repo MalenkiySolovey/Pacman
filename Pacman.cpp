@@ -33,9 +33,8 @@ void Pacman::reset(std::vector<std::vector<_i64>>& Map) {
 	_LookPosition = _CentrePosition;
 	_Settings::__Victory     = false;
 	_Settings::__Death       = false;
-	_Settings::__PacmanSpeed = (_f32)60.f;
-	_PrevSpeed               = (_f32)60.f;
-	_Speed                   = (_f32)60.f;
+	_PrevSpeed               = _Settings::__PacmanSpeed;
+	_Speed                   = _Settings::__PacmanSpeed;
 	_Moving                  = true;
 	_Up                      = false;
 	_Down                    = false;

@@ -104,6 +104,4 @@ _bool      Button::draw                                 () {
         return true; 
     }
     return _Switch;
-
-
 }
