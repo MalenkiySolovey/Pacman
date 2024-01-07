@@ -207,6 +207,7 @@ Error_list changedMapIsCorrect(std::vector<std::vector<_i64>>& Map) {
 		}
 	}
 	if (v[0] < 1) t._Pacman = true;
+	if (v[5] < 1) t._Pellet = true;
 	return t;
 }
 
@@ -232,6 +233,3 @@ _bool isMapExist(std::string Name) {
 		if (u == Name) return true;
 	return false;
 }
-
-
-
