@@ -107,4 +107,3 @@ void reloadBackground(sf::Texture& BackgroundTexture, sf::Sprite& BackgroundSpri
 	BackgroundTexture.loadFromFile("Materials/background" + std::to_string(_Settings::__CellSize) + ".png");
 	BackgroundSprite.setTexture(BackgroundTexture, true);
 }
-

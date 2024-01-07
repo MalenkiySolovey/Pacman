@@ -1,6 +1,5 @@
 #include "Headers/Map.h"
 
-
 void scanMap(std::vector<std::vector<_i64>>& _Map, std::string FileName) {
 	std::fstream _File("Maps/Map_" + FileName + ".txt");
 	std::vector<std::vector<_i64>> Map;
