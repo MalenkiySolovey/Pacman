@@ -105,14 +105,13 @@ flowchart TD
 
 The game implements canonical ghost behaviors with distinct targeting heuristics powered by the **A\*** (A-Star) pathfinding algorithm:
 
-```
-                              [ Pacman ]
-                                  ▲
-        ┌────────────────┬────────┴────────┬────────────────┐
-        │ Direct Pursuit │ Ambush (+4 sq.) │ Flank Vector   │ Scatter / Flee
-        │                │                 │                │ (if closer than 8 sq.)
-        ▼                ▼                 ▼                ▼
-   [ Blinky 🔴 ]    [ Pinky 🌸 ]      [ Inky 🔷 ]      [ Clyde 🟠 ]
+```mermaid
+flowchart TD
+    PC["Player (Pacman)"]
+    PC -->|"Direct pursuit"| B["Blinky (Red)"]
+    PC -->|"Ambush (+4 tiles ahead)"| PK["Pinky (Pink)"]
+    PC -->|"Flanking vector"| I["Inky (Cyan)"]
+    PC -->|"Scatter / Flee (&lt; 8 tiles)"| C["Clyde (Orange)"]
 ```
 
 | Ghost | Sprite | Target Cell Selection Logic |
