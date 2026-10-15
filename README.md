@@ -61,21 +61,36 @@ The application coordinates its subsystems through a modular structure:
 
 ```mermaid
 flowchart TD
-    subgraph AppLogic["Application Logic"]
-        ML["Main Loop"] --> FSM["Finite-State Machine (Menu / Game / Pause / Settings)"]
-        FSM --> T["Delta-Time Calculation (sf::Clock)"]
-        FSM --> R["Rendering Pipeline (SFML RenderWindow)"]
+    subgraph Core["1. Core & State Management"]
+        GL["Global.h / Global.cpp (Global context, timers)"]
+        M["Main.cpp (FSM: Menu / Game / Pause / Settings)"]
     end
 
-    subgraph Entities["Entities & Systems"]
-        P["Pacman (Input buffering, dot collection, collisions, tunnels)"]
-        G["Ghosts (A* pathfinding, Chase/Scatter/Fear phase machine)"]
-        M["Maze Map (21x21 matrix parser, wall autotiling)"]
+    subgraph Entities["2. Game Entities & OOP"]
+        P["Pacman (Sub-pixel movement, collisions, tunnels)"]
+        G["Ghost (Base class: A*, bitfield state flags)"]
+        G --> B["Blinky (Direct target intercept)"]
+        G --> PK["Pinky (Lead vector +4 tiles)"]
+        G --> I["Inky (Flanking vector via Blinky)"]
+        G --> C["Clyde (Proximity trigger: retreat if distance &lt; 8)"]
     end
 
-    FSM --> P
-    FSM --> G
-    FSM --> M
+    subgraph MapSys["3. Procedural Maze Generation"]
+        MP["Map.cpp (21x21 matrix parser)"]
+        AT["Bitwise Wall Autotiling (Marching Squares, 16 states)"]
+        MP --> AT
+    end
+
+    subgraph UISys["4. Custom GUI Engine over SFML"]
+        A["Area (Mouse detection)"] --> R["Rectangle (Geometry)"]
+        R --> BT["Button (Interactive FSM)"]
+        T["Text (Typography)"] --> BT
+    end
+
+    M --> P
+    M --> G
+    M --> MP
+    M --> A
 ```
 
 ### Core Logic Overview:
